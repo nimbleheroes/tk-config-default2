@@ -18,7 +18,6 @@ includes:
 - ./tk-multi-breakdown.yml
 - ./tk-multi-loader2.yml
 - ./tk-multi-publish2.yml
-- ./tk-multi-reviewsubmission.yml
 - ./tk-multi-screeningroom.yml
 - ./tk-multi-shotgunpanel.yml
 - ./tk-multi-snapshot.yml
@@ -70,8 +69,7 @@ settings.tk-nuke.hiero.project:
     name: "Open in Shotgun"
     requires_selection: true
   menu_favourites:
-  - app_instance: tk-multi-workfiles2
-    name: "File Open..."
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
   location: "@engines.tk-nuke.location"
 
 ################################################################################
@@ -88,7 +86,8 @@ settings.tk-nuke.asset:
     tk-nuke-quickreview:
       location: "@apps.tk-nuke-quickreview.location"
   menu_favourites:
-  - {app_instance: tk-multi-workfiles2, name: File Open...}
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
+  - {app_instance: tk-multi-shotgunpanel, name: Shotgun Panel..., hotkey: "F4"}
   location: "@engines.tk-nuke.location"
 
 # asset_step
@@ -100,7 +99,6 @@ settings.tk-nuke.asset_step:
       location: "@apps.tk-multi-breakdown.location"
     tk-multi-loader2: "@settings.tk-multi-loader2.nuke"
     tk-multi-publish2: "@settings.tk-multi-publish2.nuke.asset_step"
-    tk-multi-reviewsubmission: "@settings.tk-multi-reviewsubmission.nuke.asset"
     tk-multi-screeningroom: "@settings.tk-multi-screeningroom.rv"
     tk-multi-shotgunpanel: "@settings.tk-multi-shotgunpanel.nuke"
     tk-multi-snapshot: "@settings.tk-multi-snapshot.nuke.asset_step"
@@ -109,10 +107,12 @@ settings.tk-nuke.asset_step:
       location: "@apps.tk-nuke-quickreview.location"
     tk-nuke-writenode: "@settings.tk-nuke-writenode.asset"
   menu_favourites:
-  - {app_instance: tk-multi-workfiles2, name: File Open...}
-  - {app_instance: tk-multi-snapshot, name: Snapshot...}
-  - {app_instance: tk-multi-workfiles2, name: File Save...}
-  - {app_instance: tk-multi-publish2, name: Publish...}
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
+  - {app_instance: tk-multi-workfiles2, name: File Save..., hotkey: "ctrl+shift+s"}
+  - {app_instance: tk-multi-snapshot, name: Snapshot..., hotkey: "alt+shift+s"}
+  - {app_instance: tk-multi-loader2, name: Load..., hotkey: "F2"}
+  - {app_instance: tk-multi-breakdown, name: Scene Breakdown..., hotkey: "F3"}
+  - {app_instance: tk-multi-shotgunpanel, name: Shotgun Panel..., hotkey: "F4"}
   location: "@engines.tk-nuke.location"
 
 # project
@@ -126,7 +126,8 @@ settings.tk-nuke.project:
     tk-nuke-quickreview:
       location: "@apps.tk-nuke-quickreview.location"
   menu_favourites:
-  - {app_instance: tk-multi-workfiles2, name: File Open...}
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
+  - {app_instance: tk-multi-shotgunpanel, name: Shotgun Panel..., hotkey: "F4"}
   location: "@engines.tk-nuke.location"
 
 # sequence
@@ -140,7 +141,8 @@ settings.tk-nuke.sequence:
     tk-nuke-quickreview:
       location: "@apps.tk-nuke-quickreview.location"
   menu_favourites:
-  - {app_instance: tk-multi-workfiles2, name: File Open...}
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
+  - {app_instance: tk-multi-shotgunpanel, name: Shotgun Panel..., hotkey: "F4"}
   location: "@engines.tk-nuke.location"
 
 # shot
@@ -154,7 +156,8 @@ settings.tk-nuke.shot:
     tk-nuke-quickreview:
       location: "@apps.tk-nuke-quickreview.location"
   menu_favourites:
-  - {app_instance: tk-multi-workfiles2, name: File Open...}
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
+  - {app_instance: tk-multi-shotgunpanel, name: Shotgun Panel..., hotkey: "F4"}
   location: "@engines.tk-nuke.location"
 
 # shot_step
@@ -166,9 +169,10 @@ settings.tk-nuke.shot_step:
       location: "@apps.tk-multi-breakdown.location"
     tk-multi-setframerange:
       location: "@apps.tk-multi-setframerange.location"
+      sg_in_frame_field: sg_head_in
+      sg_out_frame_field: sg_tail_out
+      always_lock_range: true
     tk-multi-loader2: "@settings.tk-multi-loader2.nuke"
-    tk-multi-publish2: "@settings.tk-multi-publish2.nuke.shot_step"
-    tk-multi-reviewsubmission: "@settings.tk-multi-reviewsubmission.nuke.shot"
     tk-multi-screeningroom: "@settings.tk-multi-screeningroom.rv"
     tk-multi-shotgunpanel: "@settings.tk-multi-shotgunpanel.nuke"
     tk-multi-snapshot: "@settings.tk-multi-snapshot.nuke.shot_step"
@@ -177,10 +181,13 @@ settings.tk-nuke.shot_step:
       location: "@apps.tk-nuke-quickreview.location"
     tk-nuke-writenode: "@settings.tk-nuke-writenode.shot"
   menu_favourites:
-  - {app_instance: tk-multi-workfiles2, name: File Open...}
-  - {app_instance: tk-multi-snapshot, name: Snapshot...}
-  - {app_instance: tk-multi-workfiles2, name: File Save...}
-  - {app_instance: tk-multi-publish2, name: Publish...}
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
+  - {app_instance: tk-multi-workfiles2, name: File Save..., hotkey: "ctrl+shift+s"}
+  - {app_instance: tk-multi-snapshot, name: Snapshot..., hotkey: "alt+shift+s"}
+  - {app_instance: tk-multi-loader2, name: Load..., hotkey: "F2"}
+  - {app_instance: tk-multi-breakdown, name: Scene Breakdown..., hotkey: "F3"}
+  - {app_instance: tk-multi-shotgunpanel, name: Shotgun Panel..., hotkey: "F4"}
+  - {app_instance: tk-multi-setframerange, name: Sync Frame Range with Shotgun, hotkey: "F8"}
   location: "@engines.tk-nuke.location"
 
 ################################################################################
@@ -193,10 +200,12 @@ settings.tk-nuke.nukestudio.asset_step:
       location: "@apps.tk-multi-about.location"
     tk-multi-setframerange:
       location: "@apps.tk-multi-setframerange.location"
+      sg_in_frame_field: sg_head_in
+      sg_out_frame_field: sg_tail_out
+      always_lock_range: true
     tk-multi-breakdown: "@settings.tk-multi-breakdown.nukestudio"
     tk-multi-loader2: "@settings.tk-multi-loader2.nukestudio"
     tk-multi-publish2: "@settings.tk-multi-publish2.nukestudio"
-    tk-multi-reviewsubmission: "@settings.tk-multi-reviewsubmission.nuke.asset"
     tk-multi-screeningroom: "@settings.tk-multi-screeningroom.rv"
     tk-multi-shotgunpanel: "@settings.tk-multi-shotgunpanel.nukestudio"
     tk-multi-snapshot: "@settings.tk-multi-snapshot.hiero"
@@ -222,8 +231,7 @@ settings.tk-nuke.nukestudio.asset_step:
     name: "Publish..."
     requires_selection: true
   menu_favourites:
-  - app_instance: tk-multi-workfiles2
-    name: "File Open..."
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
   location: '@engines.tk-nuke.location'
 
 # project
@@ -270,8 +278,7 @@ settings.tk-nuke.nukestudio.project:
     name: "Open in Shotgun"
     requires_selection: true
   menu_favourites:
-  - app_instance: tk-multi-workfiles2
-    name: File Open...
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
   location: '@engines.tk-nuke.location'
 
 # shot_step
@@ -281,10 +288,12 @@ settings.tk-nuke.nukestudio.shot_step:
       location: "@apps.tk-multi-about.location"
     tk-multi-setframerange:
       location: "@apps.tk-multi-setframerange.location"
+      sg_in_frame_field: sg_head_in
+      sg_out_frame_field: sg_tail_out
+      always_lock_range: true
     tk-multi-breakdown: "@settings.tk-multi-breakdown.nukestudio"
     tk-multi-loader2: "@settings.tk-multi-loader2.nukestudio"
     tk-multi-publish2: "@settings.tk-multi-publish2.nukestudio"
-    tk-multi-reviewsubmission: "@settings.tk-multi-reviewsubmission.nuke.shot"
     tk-multi-screeningroom: "@settings.tk-multi-screeningroom.rv"
     tk-multi-shotgunpanel: "@settings.tk-multi-shotgunpanel.nukestudio"
     tk-multi-snapshot: "@settings.tk-multi-snapshot.hiero"
@@ -310,6 +319,26 @@ settings.tk-nuke.nukestudio.shot_step:
     name: "Publish..."
     requires_selection: true
   menu_favourites:
-  - app_instance: tk-multi-workfiles2
-    name: "File Open..."
+  - {app_instance: tk-multi-workfiles2, name: File Open..., hotkey: "ctrl+o"}
+  location: '@engines.tk-nuke.location'
+
+
+################################################################################
+# Nuke Render Farm
+
+# project
+settings.tk-nuke.render.project:
+  apps:
+  location: "@engines.tk-nuke.location"
+
+# asset_step
+settings.tk-nuke.render.asset_step:
+  apps:
+    tk-nuke-writenode: "@settings.tk-nuke-writenode.asset"
+  location: "@engines.tk-nuke.location"
+
+# shot_step
+settings.tk-nuke.render.shot_step:
+  apps:
+    tk-nuke-writenode: "@settings.tk-nuke-writenode.shot"
   location: '@engines.tk-nuke.location'
