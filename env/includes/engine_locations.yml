@@ -13,18 +13,6 @@
 
 ################################################################################
 
-# 3dsMax
-engines.tk-3dsmaxplus.location:
-  type: app_store
-  name: tk-3dsmaxplus
-  version: v0.5.7
-
-# After Effects
-engines.tk-aftereffects.location:
-  type: app_store
-  name: tk-aftereffects
-  version: v0.1.2
-
 # Desktop
 engines.tk-desktop.location:
   type: app_store
@@ -37,35 +25,11 @@ engines.tk-desktop2.location:
   name: tk-desktop2
   version: v1.2.4
 
-# Flame
-engines.tk-flame.location:
-  type: app_store
-  name: tk-flame
-  version: v1.15.2
-
-# Houdini
-engines.tk-houdini.location:
-  type: app_store
-  name: tk-houdini
-  version: v1.6.1
-
-# Mari
-engines.tk-mari.location:
-  type: app_store
-  name: tk-mari
-  version: v1.2.2
-
 # Maya
 engines.tk-maya.location:
   type: app_store
   name: tk-maya
   version: v0.9.7
-
-# Motion Builder
-engines.tk-motionbuilder.location:
-  type: app_store
-  name: tk-motionbuilder
-  version: v0.5.0
 
 # Nuke
 engines.tk-nuke.location:
@@ -90,5 +54,3 @@ engines.tk-shotgun.location:
   type: app_store
   name: tk-shotgun
   version: v0.8.2
-
-

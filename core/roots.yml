@@ -48,8 +48,8 @@ primary:
 
     # these paths will be populated by the associated local storage in Shotgun
     # at setup time.
-    mac_path:
-    linux_path:
+    mac_path: /data/shows
+    linux_path: /shows
     windows_path:
 
     # indicates that this is the default storage root
@@ -67,4 +67,3 @@ primary:
 #     description: "High performance storage for fast/frequent texture access"
 #     shotgun_storage_id: 2
 #
-
