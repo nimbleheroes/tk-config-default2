@@ -64,34 +64,11 @@ keys:
         type: str
         filter_by: alphanumeric
 
-    # Represents the optional output name for frames written by the After Effects Publish Rendering Plugin
-    afx.comp:
-        alias: comp
-        type: str
-        filter_by: alphanumeric
-    afx.mov.ext:
-        alias: extension
-        type: str
-        choices:
-            mov: Quicktime Movie (.mov)
-            avi: Audio Video Interleaved (.avi)
-
     SEQ:
         type: sequence
         format_spec: "04"
 
-    # Represents a frame sequence exported from Flame
-    flame.frame:
-        type: sequence
-        format_spec: "08"
-
     eye:
-        type: str
-
-    houdini.node:
-        alias: node
-        type: str
-    aov_name:
         type: str
 
     # these are used by the Hiero exporter and pipeline
@@ -107,28 +84,10 @@ keys:
         alias: DD
     project:
         type: str
-
-    # These are used for the Mari UDIM pipeline:
-    UDIM:
-        type: sequence
-        default: "<UDIM>"
-    mari.channel:
+    track:
         type: str
-        alias: channel
-    mari.layer:
+    tk_version:
         type: str
-        alias: layer
-    mari.project_name:
-        type: str
-        alias: name
-    asset_name:
-        type: str
-        shotgun_entity_type: Asset
-        shotgun_field_name: code
-    task_name:
-        type: str
-        shotgun_entity_type: Task
-        shotgun_field_name: content
 
     # Maya supports two extension types.
     maya_extension:
