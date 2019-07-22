@@ -157,6 +157,15 @@ apps.tk-nuke-writenode.location:
   type: app_store
   version: v1.4.2
 
+# ---- Nimble Heroes apps
+
+# ocio
+apps.tk-multi-ocio.location:
+  name: tk-multi-ocio
+  ## Dev
+  type: dev
+  path: ~/Desktop/github/tk-multi-ocio
+
 ################################################################################
 # reference all of the common frameworks
 frameworks: '@frameworks'
