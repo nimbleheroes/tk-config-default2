@@ -143,20 +143,6 @@ apps.tk-hiero-openinshotgun.location:
   name: tk-hiero-openinshotgun
   version: v0.3.4
 
-# ---- Houdini apps
-
-# houdini alembicnode
-apps.tk-houdini-alembicnode.location:
-  type: app_store
-  name: tk-houdini-alembicnode
-  version: v0.3.1
-
-# houdini mantranode
-apps.tk-houdini-mantranode.location:
-  type: app_store
-  name: tk-houdini-mantranode
-  version: v0.3.1
-
 # ---- Nuke apps
 
 # quickreview
@@ -170,28 +156,6 @@ apps.tk-nuke-writenode.location:
   name: tk-nuke-writenode
   type: app_store
   version: v1.4.2
-
-# ---- Flame apps
-
-# flame export
-apps.tk-flame-export.location:
-  name: tk-flame-export
-  type: app_store
-  version: v1.9.3
-
-# flame review
-apps.tk-flame-review.location:
-  name: tk-flame-review
-  type: app_store
-  version: v1.3.0
-
-# ---- Mari apps
-
-# project manager
-apps.tk-mari-projectmanager.location:
-  name: tk-mari-projectmanager
-  type: app_store
-  version: v1.2.1
 
 ################################################################################
 # reference all of the common frameworks
