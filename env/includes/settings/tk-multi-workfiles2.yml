@@ -80,6 +80,7 @@ settings.tk-multi-workfiles2.launch_at_startup:
 # ---- hiero/nukestudio
 
 settings.tk-multi-workfiles2.hiero:
+  saveas_default_name: edit
   entities:
   - caption: Projects
     entity_type: Project
@@ -98,6 +99,7 @@ settings.tk-multi-workfiles2.hiero:
 
 # asset_step
 settings.tk-multi-workfiles2.maya.asset_step:
+  saveas_default_name: scene
   template_publish: maya_asset_publish
   template_publish_area: asset_publish_area_maya
   template_work: maya_asset_work
@@ -125,6 +127,7 @@ settings.tk-multi-workfiles2.maya.asset_step:
 
 # shot_step
 settings.tk-multi-workfiles2.maya.shot_step:
+  saveas_default_name: scene
   template_publish: maya_shot_publish
   template_publish_area: shot_publish_area_maya
   template_work: maya_shot_work
@@ -156,6 +159,7 @@ settings.tk-multi-workfiles2.maya.shot_step:
 
 # asset_step
 settings.tk-multi-workfiles2.nuke.asset_step:
+  saveas_default_name: comp
   template_publish: nuke_asset_publish
   template_publish_area: asset_publish_area_nuke
   template_work: nuke_asset_work
@@ -183,6 +187,7 @@ settings.tk-multi-workfiles2.nuke.asset_step:
 
 # shot_step
 settings.tk-multi-workfiles2.nuke.shot_step:
+  saveas_default_name: comp
   template_publish: nuke_shot_publish
   template_publish_area: shot_publish_area_nuke
   template_work: nuke_shot_work
@@ -214,6 +219,7 @@ settings.tk-multi-workfiles2.nuke.shot_step:
 
 # asset_step
 settings.tk-multi-workfiles2.photoshop.asset_step:
+  saveas_default_name: art
   template_publish: photoshop_asset_publish
   template_publish_area: asset_publish_area_photoshop
   template_work: photoshop_asset_work
@@ -241,6 +247,7 @@ settings.tk-multi-workfiles2.photoshop.asset_step:
 
 # shot_step
 settings.tk-multi-workfiles2.photoshop.shot_step:
+  saveas_default_name: art
   template_publish: photoshop_shot_publish
   template_publish_area: shot_publish_area_photoshop
   template_work: photoshop_shot_work
