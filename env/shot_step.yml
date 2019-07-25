@@ -31,6 +31,7 @@ engines:
   tk-maya: "@settings.tk-maya.shot_step"
   tk-nuke: "@settings.tk-nuke.shot_step"
   tk-nukestudio: "@settings.tk-nuke.nukestudio.shot_step"
+  tk-nuke-render: "@settings.tk-nuke.render.shot_step"
   tk-photoshopcc: "@settings.tk-photoshopcc.shot_step"
   tk-shell: "@settings.tk-shell.shot_step"
   tk-shotgun: "@settings.tk-shotgun.shot_step"

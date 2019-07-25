@@ -17,6 +17,9 @@ includes:
 ################################################################################
 # location descriptors for apps used in this configuration
 
+# alias fo custom entity
+alias: &ToolkitComponent CustomNonProjectEntity13
+
 # ---- Multi apps
 
 # about
@@ -156,6 +159,21 @@ apps.tk-nuke-writenode.location:
   name: tk-nuke-writenode
   type: app_store
   version: v1.4.2
+
+# ---- Nimble Heroes apps
+
+# ocio
+apps.tk-multi-ocio.location:
+  name: tk-multi-ocio
+  ### Toolkit Component Entity
+  type: shotgun
+  entity_type: *ToolkitComponent
+  name: tk-multi-ocio
+  field: sg_uploaded_app
+  version: 619 #tk-multi-ocio-0.0.3
+  ## Dev
+  # type: dev
+  # path: ~/Desktop/github/tk-multi-ocio
 
 ################################################################################
 # reference all of the common frameworks

@@ -1,6 +1,6 @@
 ocio_profile_version: 1
 
-search_path: /pipe/ocio/aces_1.0.3/luts:/pipe/ocio/nuke-default/luts:../../shots/$SEQ/luts:../../shots/$SEQ/$SHOT/luts:luts
+search_path: ../../../../pipe/ocio/aces_1.0.3/luts:../../../../pipe/ocio/nuke-default/luts:../../shots/$SEQ/$SHOT/luts:../../shots/$SEQ/luts:luts
 strictparsing: true
 luma: [0.2126, 0.7152, 0.0722]
 
@@ -47,7 +47,7 @@ looks:
   #   process_space: Camera Raw
   #   transform: !<FileTransform> {src: di.cc, interpolation: linear, cccid: 0}
 
-    colorspaces:
+colorspaces:
   - !<ColorSpace>
     # The 'Camera Raw' colorspace may need to be changed depending on the
     # project and its native capture format. The dafault is set up for
