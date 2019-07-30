@@ -133,6 +133,8 @@ paths:
 
     ocio_config_path:
         definition: 'pipe/ocio'
+    ocio_show_lut_area:
+        definition: 'pipe/ocio/luts'
 
     #
     # Hiero
@@ -157,10 +159,27 @@ paths:
     # Sequence level paths
     #
 
+    #
+    # OCIO
+    #
+
+    ocio_seq_lut_area:
+        definition: '@sequence_root/luts'
+    ocio_seq_dailies_cc:
+        definition: '@sequence_root/luts/dailies.cc'
 
     ##########################################################################################
     # Shot level paths
     #
+
+    #
+    # OCIO
+    #
+
+    ocio_shot_lut_area:
+        definition: '@shot_root/luts'
+    ocio_shot_dailies_cc:
+        definition: '@shot_root/luts/dailies.cc'
 
     #
     # Photoshop

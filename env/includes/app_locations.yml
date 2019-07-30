@@ -17,7 +17,7 @@ includes:
 ################################################################################
 # location descriptors for apps used in this configuration
 
-# alias fo custom entity
+# alias for custom entity
 alias: &ToolkitComponent CustomNonProjectEntity13
 
 # ---- Multi apps
