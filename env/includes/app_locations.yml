@@ -168,9 +168,8 @@ apps.tk-multi-ocio.location:
   ### Toolkit Component Entity
   type: shotgun
   entity_type: *ToolkitComponent
-  name: tk-multi-ocio
   field: sg_uploaded_app
-  version: 619 #tk-multi-ocio-0.0.3
+  version: 624 #tk-multi-ocio-0.0.4
   ## Dev
   # type: dev
   # path: ~/Desktop/github/tk-multi-ocio
