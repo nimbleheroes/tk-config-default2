@@ -157,8 +157,17 @@ apps.tk-nuke-quickreview.location:
 # writenode
 apps.tk-nuke-writenode.location:
   name: tk-nuke-writenode
-  type: app_store
-  version: v1.4.2
+  ### App Store
+  # type: app_store
+  # version: v1.4.2
+  ### Toolkit Component Entity
+  type: shotgun
+  entity_type: *ToolkitComponent
+  field: sg_uploaded_app
+  version: 635 #tk-nuke-writenode-1.4.2-niho.1
+  ## Dev
+  # type: dev
+  # path: ~/Desktop/github/tk-nuke-writenode-niho
 
 # ---- Nimble Heroes apps
 
