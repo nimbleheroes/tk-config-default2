@@ -76,7 +76,7 @@ frameworks:
       type: shotgun
       entity_type: *ToolkitComponent
       field: sg_uploaded_app
-      version: 623 #v0.0.2
+      version: 623 #tk-framework-niho-0.0.2
       ## Dev
       # type: dev
       # path: ~/Desktop/github/tk-framework-niho
