@@ -24,6 +24,7 @@ includes:
 - ./tk-multi-workfiles2.yml
 - ./tk-nuke-writenode.yml
 - ./tk-multi-ocio.yml
+- ./tk-nuke-tools.yml
 
 ################################################################################
 # Hiero
@@ -79,6 +80,7 @@ settings.tk-nuke.hiero.project:
 # asset
 settings.tk-nuke.asset:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
     tk-multi-about:
       location: "@apps.tk-multi-about.location"
@@ -95,6 +97,7 @@ settings.tk-nuke.asset:
 # asset_step
 settings.tk-nuke.asset_step:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
     tk-multi-about:
       location: "@apps.tk-multi-about.location"
@@ -121,6 +124,7 @@ settings.tk-nuke.asset_step:
 # project
 settings.tk-nuke.project:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
     tk-multi-about:
       location: "@apps.tk-multi-about.location"
@@ -137,6 +141,7 @@ settings.tk-nuke.project:
 # sequence
 settings.tk-nuke.sequence:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
     tk-multi-about:
       location: "@apps.tk-multi-about.location"
@@ -153,6 +158,7 @@ settings.tk-nuke.sequence:
 # shot
 settings.tk-nuke.shot:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
     tk-multi-about:
       location: "@apps.tk-multi-about.location"
@@ -169,6 +175,7 @@ settings.tk-nuke.shot:
 # shot_step
 settings.tk-nuke.shot_step:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
     tk-multi-about:
       location: "@apps.tk-multi-about.location"
@@ -336,12 +343,14 @@ settings.tk-nuke.nukestudio.shot_step:
 # project
 settings.tk-nuke.render.project:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
   location: "@engines.tk-nuke.location"
 
 # asset_step
 settings.tk-nuke.render.asset_step:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
     tk-nuke-writenode: "@settings.tk-nuke-writenode.asset"
   location: "@engines.tk-nuke.location"
@@ -349,6 +358,7 @@ settings.tk-nuke.render.asset_step:
 # shot_step
 settings.tk-nuke.render.shot_step:
   apps:
+    tk-nuke-tools: "@settings.tk-nuke-tools"
     tk-multi-ocio: "@settings.tk-multi-ocio"
     tk-nuke-writenode: "@settings.tk-nuke-writenode.shot"
   location: '@engines.tk-nuke.location'
