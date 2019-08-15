@@ -9,6 +9,9 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 #
 
+# alias fo custom entity
+alias: &ToolkitComponent CustomNonProjectEntity13
+
 ################################################################################
 # A single, top-level setting is defined: "@frameworks". This setting can
 # be included and referenced wherever shared frameworks are required.
@@ -20,7 +23,7 @@ frameworks:
       version: v1.0.2
       type: app_store
       name: tk-framework-adobe
-  
+
   # adminui - provides GUIs for administrative commands
   tk-framework-adminui_v0.x.x:
     location:
@@ -41,6 +44,7 @@ frameworks:
       version: v2.8.3
       type: app_store
       name: tk-framework-qtwidgets
+
   # shotgunutils v4 - Shotgun Related Utilities
   tk-framework-shotgunutils_v4.x.x:
     location:
@@ -61,3 +65,18 @@ frameworks:
       version: v0.2.7
       type: app_store
       name: tk-framework-widget
+
+# ---- Nimble Heroes frameworks
+
+  # niho - Niho studio utilities
+  tk-framework-niho_v0.0.x:
+    location:
+      name: tk-framework-niho
+      ### Toolkit Component Entity
+      type: shotgun
+      entity_type: *ToolkitComponent
+      field: sg_uploaded_app
+      version: 623 #tk-framework-niho-0.0.2
+      ## Dev
+      # type: dev
+      # path: ~/Desktop/github/tk-framework-niho
