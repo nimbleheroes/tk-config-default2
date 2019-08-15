@@ -50,10 +50,10 @@ looks:
 colorspaces:
   - !<ColorSpace>
     # The 'Camera Raw' colorspace may need to be changed depending on the
-    # project and its native capture format. The dafault is set up for
-    # Alexa V3 LogC. If you need a different colrospace, you can copy it
-    # from the  Utility/Aliases section at the bottom of this config and
-    # overwrite this one.
+    # project and its native capture format. The default is set up for
+    # Alexa V3 LogC. If you need a different colorspace, you can copy it
+    # from the 'ACES Colorspaces' section at below to overwrite
+    # this one.
     name: Camera Raw
     family: NimbleHeroes
     equalitygroup: ""
@@ -65,7 +65,10 @@ colorspaces:
     isdata: false
     allocation: uniform
     allocationvars: [0, 1]
-    to_reference: !<ColorSpaceTransform> {src: Input - ARRI - V3 LogC (EI800) - Wide Gamut, dst: ACES - ACES2065-1}
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: V3_LogC_800_to_linear.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [0.680206, 0.236137, 0.083658, 0, 0.085415, 1.01747, -0.102886, 0, 0.002057, -0.062563, 1.06051, 0, 0, 0, 0, 1]}
 
   - !<ColorSpace>
     # This custom LUT convert the incoming image to the 'Camera Raw' format
