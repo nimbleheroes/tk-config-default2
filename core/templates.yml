@@ -135,6 +135,13 @@ paths:
         definition: 'pipe/ocio'
 
     #
+    # Nuke
+    #
+
+    nuke_tools_path:
+        definition: 'pipe/nuke'
+
+    #
     # Hiero
     #
 

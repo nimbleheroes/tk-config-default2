@@ -183,6 +183,19 @@ apps.tk-multi-ocio.location:
   # type: dev
   # path: ~/Desktop/github/tk-multi-ocio
 
+# nuke_tools
+apps.tk-nuke-tools.location:
+  name: tk-nuke-tools
+  ### Toolkit Component Entity
+  type: shotgun
+  entity_type: *ToolkitComponent
+  field: sg_uploaded_app
+  version: 646 #tk-nuke_tools-0.0.1
+  ## Dev
+  # type: dev
+  # path: ~/Desktop/github/tk-nuke-tools-niho
+
+
 ################################################################################
 # reference all of the common frameworks
 frameworks: '@frameworks'
