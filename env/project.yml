@@ -21,6 +21,7 @@ includes:
 - ./includes/settings/tk-photoshopcc.yml
 - ./includes/settings/tk-shell.yml
 - ./includes/settings/tk-shotgun.yml
+- ./includes/settings/tk-terminal.yml
 
 ################################################################################
 # configuration for all engines to load in a project context
@@ -35,6 +36,7 @@ engines:
   tk-photoshopcc: "@settings.tk-photoshopcc.project"
   tk-shell: "@settings.tk-shell.project"
   tk-shotgun: "@settings.tk-shotgun.project"
+  tk-terminal: "@settings.tk-terminal.project"
 
 ################################################################################
 # reference all of the common frameworks

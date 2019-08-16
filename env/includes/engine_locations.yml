@@ -54,3 +54,17 @@ engines.tk-shotgun.location:
   type: app_store
   name: tk-shotgun
   version: v0.8.2
+
+# ---- Nimble Heroes engines
+
+# terminal
+engines.tk-terminal.location:
+  name: tk-terminal
+  ### Toolkit Component Entity
+  # type: shotgun
+  # entity_type: *ToolkitComponent
+  # field: sg_uploaded_app
+  # version: 000 #tk-terminal-0.0.0
+  ## Dev
+  type: dev
+  path: ~/Desktop/github/tk-terminal-niho

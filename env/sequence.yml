@@ -26,6 +26,7 @@ includes:
 - ./includes/settings/tk-nuke.yml
 - ./includes/settings/tk-shell.yml
 - ./includes/settings/tk-shotgun.yml
+- ./includes/settings/tk-terminal.yml
 
 ################################################################################
 # configuration for all engines to load in a sequence context
@@ -35,6 +36,7 @@ engines:
   tk-nuke: "@settings.tk-nuke.sequence"
   tk-shell: "@settings.tk-shell.sequence"
   tk-shotgun: "@settings.tk-shotgun.sequence"
+  tk-terminal: "@settings.tk-terminal.sequence"
 
 ################################################################################
 # reference all of the common frameworks

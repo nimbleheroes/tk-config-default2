@@ -1,0 +1,49 @@
+# Copyright (c) 2017 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+#
+
+################################################################################
+
+includes:
+- ../app_locations.yml
+- ../engine_locations.yml
+
+################################################################################
+# Terminal
+
+# asset
+settings.tk-terminal.asset:
+  apps:
+  location: "@engines.tk-terminal.location"
+
+# asset_step
+settings.tk-terminal.asset_step:
+  apps:
+  location: "@engines.tk-terminal.location"
+
+# project
+settings.tk-terminal.project:
+  apps:
+  location: "@engines.tk-terminal.location"
+
+# sequence
+settings.tk-terminal.sequence:
+  apps:
+  location: "@engines.tk-terminal.location"
+
+# shot
+settings.tk-terminal.shot:
+  apps:
+  location: "@engines.tk-terminal.location"
+
+# shot_step
+settings.tk-terminal.shot_step:
+  apps:
+  location: "@engines.tk-terminal.location"
