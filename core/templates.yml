@@ -122,6 +122,8 @@ paths:
     shot_step: shots/{Sequence}/{Shot}/{Step}
     asset_step: asset/{Asset}/{Step}
 
+    shell_prompt: '[{Shot}][{Asset}][\/{Step}]'
+
 
     ##########################################################################################
     # Project level paths
