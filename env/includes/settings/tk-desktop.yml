@@ -17,13 +17,18 @@ includes:
 - ./tk-multi-launchapp.yml
 - ./tk-multi-publish2.yml
 - ./tk-multi-screeningroom.yml
+- ./tk-multi-shotgunpanel.yml
 
 ################################################################################
 
 # site
 settings.tk-desktop.site:
   apps:
+    tk-multi-shotgunpanel: "@settings.tk-multi-shotgunpanel"
   location: "@engines.tk-desktop.location"
+  run_at_startup:
+  - {app_instance: '', name: Apps}
+  - {app_instance: tk-multi-shotgunpanel, name: SG}
 
 
 # project
