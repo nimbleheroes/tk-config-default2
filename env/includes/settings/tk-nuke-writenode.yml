@@ -137,7 +137,7 @@ settings.tk-nuke-writenode.shot:
     settings:
       autocrop: False
       channels: rgb
-      compression: DWAB
+      compression: "Zip (1 scanline)"
       dw_compression_level: 20
       datatype: 16 bit half
       metadata: all metadata
