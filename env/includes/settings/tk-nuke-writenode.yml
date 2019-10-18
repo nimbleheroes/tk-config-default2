@@ -112,9 +112,24 @@ settings.tk-nuke-writenode.shot:
   template_script_work: nuke_shot_work
   show_convert_actions: True
   write_nodes:
+  - file_type: mov
+    name: review qt
+    promote_write_knobs: [mov64_dnxhd_codec_profile, mov64_fps]
+    proxy_publish_template:
+    proxy_render_template:
+    render_template: nuke_shot_render_movie
+    publish_template:
+    settings:
+      mov64_codec: ADvn
+      mov64_dnxhd_codec_profile: "DNxHD 422 8-bit 36Mbit"
+      mov64_fps: 23.976
+      mov64_write_timecode: True
+      channels: rgb
+    tank_type: Rendered Movie
+    tile_color: []
   - file_type: exr
     name: main output
-    promote_write_knobs: []
+    promote_write_knobs: [compression]
     proxy_publish_template:
     proxy_render_template:
     render_template: nuke_shot_main_work
