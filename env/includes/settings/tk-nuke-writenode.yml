@@ -118,7 +118,7 @@ settings.tk-nuke-writenode.shot:
     proxy_publish_template:
     proxy_render_template:
     render_template: nuke_shot_render_movie
-    publish_template:
+    publish_template: nuke_shot_render_movie
     settings:
       mov64_codec: ADvn
       mov64_dnxhd_codec_profile: "DNxHD 422 8-bit 36Mbit"
