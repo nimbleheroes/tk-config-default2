@@ -17,6 +17,9 @@ includes:
 ################################################################################
 # location descriptors for apps used in this configuration
 
+# alias fo custom entity
+alias: &ToolkitComponent CustomNonProjectEntity13
+
 # ---- Multi apps
 
 # about
@@ -143,20 +146,6 @@ apps.tk-hiero-openinshotgun.location:
   name: tk-hiero-openinshotgun
   version: v0.3.4
 
-# ---- Houdini apps
-
-# houdini alembicnode
-apps.tk-houdini-alembicnode.location:
-  type: app_store
-  name: tk-houdini-alembicnode
-  version: v0.3.1
-
-# houdini mantranode
-apps.tk-houdini-mantranode.location:
-  type: app_store
-  name: tk-houdini-mantranode
-  version: v0.3.1
-
 # ---- Nuke apps
 
 # quickreview
@@ -168,30 +157,44 @@ apps.tk-nuke-quickreview.location:
 # writenode
 apps.tk-nuke-writenode.location:
   name: tk-nuke-writenode
-  type: app_store
-  version: v1.4.2
+  ### App Store
+  # type: app_store
+  # version: v1.4.2
+  ### Toolkit Component Entity
+  type: shotgun
+  entity_type: *ToolkitComponent
+  field: sg_uploaded_app
+  version: 748 #tk-nuke-writenode-1.4.2-niho.2
+  ## Dev
+  # type: dev
+  # path: ~/Desktop/github/tk-nuke-writenode-niho
 
-# ---- Flame apps
+# ---- Nimble Heroes apps
 
-# flame export
-apps.tk-flame-export.location:
-  name: tk-flame-export
-  type: app_store
-  version: v1.9.3
+# ocio
+apps.tk-multi-ocio.location:
+  name: tk-multi-ocio
+  ### Toolkit Component Entity
+  type: shotgun
+  entity_type: *ToolkitComponent
+  field: sg_uploaded_app
+  version: 624 #tk-multi-ocio-0.0.4
+  ## Dev
+  # type: dev
+  # path: ~/Desktop/github/tk-multi-ocio
 
-# flame review
-apps.tk-flame-review.location:
-  name: tk-flame-review
-  type: app_store
-  version: v1.3.0
+# nuke_tools
+apps.tk-nuke-tools.location:
+  name: tk-nuke-tools
+  ### Toolkit Component Entity
+  type: shotgun
+  entity_type: *ToolkitComponent
+  field: sg_uploaded_app
+  version: 646 #tk-nuke_tools-0.0.1
+  ## Dev
+  # type: dev
+  # path: ~/Desktop/github/tk-nuke-tools-niho
 
-# ---- Mari apps
-
-# project manager
-apps.tk-mari-projectmanager.location:
-  name: tk-mari-projectmanager
-  type: app_store
-  version: v1.2.1
 
 ################################################################################
 # reference all of the common frameworks

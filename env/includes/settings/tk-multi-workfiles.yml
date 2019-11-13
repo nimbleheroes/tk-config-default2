@@ -14,8 +14,3 @@ includes:
 - ../app_locations.yml
 
 ################################################################################
-
-# mari
-settings.tk-multi-workfiles.mari:
-  sg_entity_types: [Asset]
-  location: "@apps.tk-multi-workfiles.location"

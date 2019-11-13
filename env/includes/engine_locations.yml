@@ -13,18 +13,6 @@
 
 ################################################################################
 
-# 3dsMax
-engines.tk-3dsmaxplus.location:
-  type: app_store
-  name: tk-3dsmaxplus
-  version: v0.5.7
-
-# After Effects
-engines.tk-aftereffects.location:
-  type: app_store
-  name: tk-aftereffects
-  version: v0.1.2
-
 # Desktop
 engines.tk-desktop.location:
   type: app_store
@@ -61,12 +49,6 @@ engines.tk-maya.location:
   name: tk-maya
   version: v0.9.7
 
-# Motion Builder
-engines.tk-motionbuilder.location:
-  type: app_store
-  name: tk-motionbuilder
-  version: v0.5.0
-
 # Nuke
 engines.tk-nuke.location:
   type: app_store
@@ -90,5 +72,3 @@ engines.tk-shotgun.location:
   type: app_store
   name: tk-shotgun
   version: v0.8.2
-
-
