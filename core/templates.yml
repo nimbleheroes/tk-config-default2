@@ -229,35 +229,35 @@ paths:
     # Write node locations
     # main output
     nuke_shot_main_filename:
-        definition: '{Shot}_{Step}_out[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_out[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Shot}_{nuke.output}_v{version}/{Shot}_{nuke.output}_v{version}.{SEQ}.exr'
     nuke_shot_main_work:
         definition: '@shot_step/work/images/@nuke_shot_main_filename'
     nuke_shot_main_publish:
         definition: '@shot_root/elem/@nuke_shot_main_filename'
     # precomp output
     nuke_shot_precomp_filename:
-        definition: '{Shot}_{Step}_prc[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_prc[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Shot}_{Step}_prc[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_prc[-{nuke.output}]_v{version}.{SEQ}.exr'
     nuke_shot_precomp_work:
         definition: '@shot_step/work/images/@nuke_shot_precomp_filename'
     nuke_shot_precomp_publish:
         definition: '@shot_root/elem/@nuke_shot_precomp_filename'
     # smartvector output
     nuke_shot_smartvector_filename:
-        definition: '{Shot}_{Step}_smrt[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_smrt[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Shot}_{Step}_smrt[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_smrt[-{nuke.output}]_v{version}.{SEQ}.exr'
     nuke_shot_smartvector_work:
         definition: '@shot_step/work/images/@nuke_shot_smartvector_filename'
     nuke_shot_smartvector_publish:
         definition: '@shot_root/elem/@nuke_shot_smartvector_filename'
     # matte output
     nuke_shot_matte_filename:
-        definition: '{Shot}_{Step}_matte[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_matte[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Shot}_{Step}_matte[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_matte[-{nuke.output}]_v{version}.{SEQ}.exr'
     nuke_shot_matte_work:
         definition: '@shot_step/work/images/@nuke_shot_matte_filename'
     nuke_shot_matte_publish:
         definition: '@shot_root/elem/@nuke_shot_matte_filename'
     # review output
     nuke_shot_review_filename:
-        definition: '{Shot}_{Step}_review[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_review[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Shot}_{Step}_review[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_review[-{nuke.output}]_v{version}.{SEQ}.exr'
     nuke_shot_review_work:
         definition: '@shot_step/work/images/@nuke_shot_review_filename'
     nuke_shot_review_publish:
