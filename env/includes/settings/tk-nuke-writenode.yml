@@ -30,8 +30,7 @@ settings.tk-nuke-writenode.asset:
     settings:
       autocrop: False
       channels: rgb
-      compression: DWAB
-      dw_compression_level: 20
+      compression: Zip (1 scanline)
       datatype: 16 bit half
       metadata: all metadata
     tank_type: Rendered Image
@@ -69,7 +68,7 @@ settings.tk-nuke-writenode.asset:
       metadata: all metadata
     tank_type: Rendered Image
     tile_color: []
-  - file_type: exr
+  - file_type: jpeg
     name: review
     promote_write_knobs: []
     proxy_publish_template:
@@ -77,12 +76,9 @@ settings.tk-nuke-writenode.asset:
     render_template: nuke_asset_review_work
     publish_template: nuke_asset_review_publish
     settings:
-      autocrop: False
       channels: rgb
-      compression: DWAB
-      dw_compression_level: 150
-      datatype: 16 bit half
-      metadata: all metadata
+      _jpeg_quality: 0.9
+      _jpeg_sub_sampling: "4:2:2"
     tank_type: Rendered Image
     tile_color: []
   - file_type: exr

@@ -257,7 +257,7 @@ paths:
         definition: '@shot_root/elem/@nuke_shot_matte_filename'
     # review output
     nuke_shot_review_filename:
-        definition: '{Shot}_{Step}_review[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_review[-{nuke.output}]_v{version}.{SEQ}.exr'
+        definition: '{Shot}_{Step}_review[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_review[-{nuke.output}]_v{version}.{SEQ}.jpg'
     nuke_shot_review_work:
         definition: '@shot_step/work/images/@nuke_shot_review_filename'
     nuke_shot_review_publish:
