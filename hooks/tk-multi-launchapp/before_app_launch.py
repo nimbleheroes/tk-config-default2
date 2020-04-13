@@ -53,7 +53,8 @@ class BeforeAppLaunch(sgtk.Hook):
         niho_utils = niho_fw.import_module("utils")
 
         # gets the 'pipeline' path from shotgun LocalStorage entity
-        pipe_path_dict = self.parent.shotgun.find_one("LocalStorage", [['code', 'is', 'pipeline']], ["code", "linux_path", "windows_path", "mac_path"])
+        pipe_path_dict = self.parent.shotgun.find_one("LocalStorage", [['code', 'is', 'pipeline']], [
+                                                      "code", "linux_path", "windows_path", "mac_path"])
         pipe_path = sgtk.util.ShotgunPath.from_shotgun_dict(pipe_path_dict)
 
         # create a dict to store some env variables
@@ -66,12 +67,15 @@ class BeforeAppLaunch(sgtk.Hook):
         if engine_name in ['tk-nuke', 'tk-nuke-render']:
             global_nuke_path = os.path.join(pipe_path.current_os, 'nuke')
             global_plugins_path = os.path.join(global_nuke_path, 'plugins')
-            project_plugins_path = os.path.join(niho_utils.resolve_template(self.sgtk.templates["nuke_tools_path"], self.parent.context), 'plugins')
-            env_vars['NUKE_PATH'] = "{0}:{1}:{2}".format(global_nuke_path, global_plugins_path, project_plugins_path)
+            project_plugins_path = os.path.join(niho_utils.resolve_template(
+                self.sgtk.templates["nuke_tools_path"], self.parent.context), 'plugins')
+            env_vars['NUKE_PATH'] = "{0}:{1}:{2}".format(
+                global_nuke_path, global_plugins_path, project_plugins_path)
 
         # set env variables for hiero/nukestudio
         if engine_name in ['tk-hiero', 'tk-nukestudio']:
-            env_vars['HIERO_PLUGIN_PATH'] = os.path.join(pipe_path.current_os, 'hiero')
+            env_vars['HIERO_PLUGIN_PATH'] = os.path.join(
+                pipe_path.current_os, 'hiero')
 
         # append env_vars to existing environment
         for k, v in env_vars.iteritems():
