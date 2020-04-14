@@ -57,6 +57,10 @@ keys:
         type: int
     segment_name:
         type: str
+    current_user:
+        type: str
+        shotgun_entity_type: HumanUser
+        shotgun_field_name: login
 
     # Represents the optional output name for frames written by the Shotgun Write Node
     nuke.output:
@@ -109,18 +113,20 @@ keys:
 
 paths:
 
-    # Common  path definitions to use as shorthand in order to avoid repetitive and verbose
+    # Common path definitions to use as shorthand in order to avoid repetitive and verbose
     # templates. This also makes it easy to change any of the common root paths and have the
     # changes apply to all templates that use them.
     #
     # These don't require the standard formatting (with definition and root_name) because they
     # will be set within each template that uses the alias.
-    asset_root: asset/{Asset}
-    sequence_root: shots/{Sequence}
+    asset_root: assets/{Asset}
+    seq_root: shots/{Sequence}
     shot_root: shots/{Sequence}/{Shot}
 
-    shot_step: shots/{Sequence}/{Shot}/{Step}
-    asset_step: asset/{Asset}/{Step}
+    shot_work_area: shots/{Sequence}/{Shot}/work/{Step}/{current_user}
+    shot_pub_area: shots/{Sequence}/{Shot}/pub/{Step}
+    asset_work_area: assets/{Asset}/work/{Step}
+    asset_pub_area: assets/{Asset}/pub/{Step}
 
 
     ##########################################################################################
@@ -175,17 +181,17 @@ paths:
 
     # The location of WIP files
     photoshop_shot_work:
-        definition: '@shot_step/work/photoshop/{name}.v{version}.psd'
+        definition: '@shot_work_area/photoshop/{name}_v{version}.psd'
     shot_work_area_photoshop:
-        definition: '@shot_step/work/photoshop'
+        definition: '@shot_work_area/photoshop'
     # The location of backups of WIP files
     photoshop_shot_snapshot:
-        definition: '@shot_step/work/photoshop/snapshots/{name}.v{version}.{timestamp}.psd'
+        definition: '@shot_work_area/photoshop/snapshots/{name}_v{version}.{timestamp}.psd'
     # The location of published files
     shot_publish_area_photoshop:
-        definition: '@shot_step/pub/photoshop'
+        definition: '@shot_pub_area/photoshop'
     photoshop_shot_publish:
-        definition: '@shot_step/pub/photoshop/{name}.v{version}.psd'
+        definition: '@shot_pub_area/photoshop/{name}_v{version}.psd'
 
     #
     # Maya
@@ -193,19 +199,19 @@ paths:
 
     # define the location of a work area
     shot_work_area_maya:
-        definition: '@shot_step/work/maya'
+        definition: '@shot_work_area/maya'
     # define the location of a publish area
     shot_publish_area_maya:
-        definition: '@shot_step/pub/maya'
+        definition: '@shot_pub_area/maya'
     # The location of WIP files
     maya_shot_work:
-        definition: '@shot_step/work/maya/{name}.v{version}.{maya_extension}'
+        definition: '@shot_work_area/maya/{name}_v{version}.{maya_extension}'
     # The location of backups of WIP files
     maya_shot_snapshot:
-        definition: '@shot_step/work/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
+        definition: '@shot_work_area/maya/snapshots/{name}_v{version}.{timestamp}.{maya_extension}'
     # The location of published maya files
     maya_shot_publish:
-        definition: '@shot_step/pub/maya/{name}.v{version}.{maya_extension}'
+        definition: '@shot_pub_area/maya/{name}_v{version}.{maya_extension}'
 
 
     #
@@ -214,58 +220,58 @@ paths:
 
     # The location of WIP script files
     shot_work_area_nuke:
-        definition: '@shot_step/work/nuke'
+        definition: '@shot_work_area/nuke'
     nuke_shot_work:
-        definition: '@shot_step/work/nuke/{name}.v{version}.nk'
+        definition: '@shot_work_area/nuke/{Step}[_{name}]_{current_user}_v{version}.nk'
     nuke_shot_snapshot:
-        definition: '@shot_step/work/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
+        definition: '@shot_work_area/nuke/snapshots/{Step}[_{name}]_{current_user}_v{version}.{timestamp}.nk'
 
     # The location of published nuke script files
     shot_publish_area_nuke:
-        definition: '@shot_step/pub/nuke'
+        definition: '@shot_pub_area/nuke'
     nuke_shot_publish:
-        definition: '@shot_step/pub/nuke/{name}.v{version}.nk'
+        definition: '@shot_pub_area/nuke/{Step}[_{name}]_{current_user}_v{version}.nk'
 
     # Write node locations
     # main output
     nuke_shot_main_filename:
-        definition: '{Shot}_{Step}_out[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_out[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Step}_{current_user}_out[-{nuke.output}][_{eye}]_v{version}/{Step}_{current_user}_out[-{nuke.output}][_{eye}]_v{version}.{SEQ}.exr'
     nuke_shot_main_work:
-        definition: '@shot_step/work/images/@nuke_shot_main_filename'
+        definition: '@shot_work_area/images/@nuke_shot_main_filename'
     nuke_shot_main_publish:
-        definition: '@shot_root/elem/@nuke_shot_main_filename'
+        definition: '@shot_pub_area/images/@nuke_shot_main_filename'
     # precomp output
     nuke_shot_precomp_filename:
-        definition: '{Shot}_{Step}_prc[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_prc[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Step}_{current_user}_prc[-{nuke.output}][_{eye}]_v{version}/{Step}_{current_user}_prc[-{nuke.output}][_{eye}]_v{version}.{SEQ}.exr'
     nuke_shot_precomp_work:
-        definition: '@shot_step/work/images/@nuke_shot_precomp_filename'
+        definition: '@shot_work_area/images/@nuke_shot_precomp_filename'
     nuke_shot_precomp_publish:
-        definition: '@shot_root/elem/@nuke_shot_precomp_filename'
+        definition: '@shot_pub_area/images/@nuke_shot_precomp_filename'
     # smartvector output
     nuke_shot_smartvector_filename:
-        definition: '{Shot}_{Step}_smrt[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_smrt[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Step}_{current_user}_smt[-{nuke.output}][_{eye}]_v{version}/{Step}_{current_user}_smt[-{nuke.output}][_{eye}]_v{version}.{SEQ}.exr'
     nuke_shot_smartvector_work:
-        definition: '@shot_step/work/images/@nuke_shot_smartvector_filename'
+        definition: '@shot_work_area/images/@nuke_shot_smartvector_filename'
     nuke_shot_smartvector_publish:
-        definition: '@shot_root/elem/@nuke_shot_smartvector_filename'
+        definition: '@shot_pub_area/images/@nuke_shot_smartvector_filename'
     # matte output
     nuke_shot_matte_filename:
-        definition: '{Shot}_{Step}_matte[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_matte[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Step}_{current_user}_mat[-{nuke.output}][_{eye}]_v{version}/{Step}_{current_user}_mat[-{nuke.output}][_{eye}]_v{version}.{SEQ}.exr'
     nuke_shot_matte_work:
-        definition: '@shot_step/work/images/@nuke_shot_matte_filename'
+        definition: '@shot_work_area/images/@nuke_shot_matte_filename'
     nuke_shot_matte_publish:
-        definition: '@shot_root/elem/@nuke_shot_matte_filename'
+        definition: '@shot_pub_area/images/@nuke_shot_matte_filename'
     # review output
     nuke_shot_review_filename:
-        definition: '{Shot}_{Step}_review[-{nuke.output}]_{eye}_v{version}/{Shot}_{Step}_review[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
+        definition: '{Step}_{current_user}_rvw[-{nuke.output}]_{eye}_v{version}/{Step}_{current_user}_rvw[-{nuke.output}][_{eye}]_v{version}.{SEQ}.exr'
     nuke_shot_review_work:
-        definition: '@shot_step/work/images/@nuke_shot_review_filename'
+        definition: '@shot_work_area/images/@nuke_shot_review_filename'
     nuke_shot_review_publish:
-        definition: '@shot_root/elem/@nuke_shot_review_filename'
+        definition: '@shot_pub_area/images/@nuke_shot_review_filename'
 
     # reviewsubmission
     nuke_shot_render_movie:
-        definition: '@shot_root/movs/{Shot}_{Step}_review[-{nuke.output}]_{eye}_v{version}.mov'
+        definition: '@shot_root/movs/{Shot}_{Step}_review[-{nuke.output}][_{eye}]_v{version}.mov'
 
     #
     # Hiero
@@ -289,7 +295,7 @@ paths:
     #
 
     asset_alembic_cache:
-        definition: '@asset_step/pub/caches/{name}.v{version}.abc'
+        definition: '@asset_pub_area/caches/{name}_v{version}.abc'
 
 
     #
@@ -298,17 +304,17 @@ paths:
 
     # The location of WIP files
     photoshop_asset_work:
-        definition: '@asset_step/work/photoshop/{name}.v{version}.psd'
+        definition: '@asset_work_area/photoshop/{name}_v{version}.psd'
     asset_work_area_photoshop:
-        definition: '@asset_step/work/photoshop'
+        definition: '@asset_work_area/photoshop'
     # The location of backups of WIP files
     photoshop_asset_snapshot:
-        definition: '@asset_step/work/photoshop/snapshots/{name}.v{version}.{timestamp}.psd'
+        definition: '@asset_work_area/photoshop/snapshots/{name}_v{version}.{timestamp}.psd'
     # The location of published files
     asset_publish_area_photoshop:
-        definition: '@asset_step/pub/photoshop'
+        definition: '@asset_pub_area/photoshop'
     photoshop_asset_publish:
-        definition: '@asset_step/pub/photoshop/{name}.v{version}.psd'
+        definition: '@asset_pub_area/photoshop/{name}_v{version}.psd'
 
 
     #
@@ -317,19 +323,19 @@ paths:
 
     # define the location of a work area
     asset_work_area_maya:
-        definition: '@asset_step/work/maya'
+        definition: '@asset_work_area/maya'
     # define the location of a publish area
     asset_publish_area_maya:
-        definition: '@asset_step/pub/maya'
+        definition: '@asset_pub_area/maya'
     # The location of WIP files
     maya_asset_work:
-        definition: '@asset_step/work/maya/{name}.v{version}.{maya_extension}'
+        definition: '@asset_work_area/maya/{name}_v{version}.{maya_extension}'
     # The location of backups of WIP files
     maya_asset_snapshot:
-        definition: '@asset_step/work/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
+        definition: '@asset_work_area/maya/snapshots/{name}_v{version}.{timestamp}.{maya_extension}'
     # The location of published maya files
     maya_asset_publish:
-        definition: '@asset_step/pub/maya/{name}.v{version}.{maya_extension}'
+        definition: '@asset_pub_area/maya/{name}_v{version}.{maya_extension}'
 
 
     #
@@ -338,30 +344,30 @@ paths:
 
     # The location of WIP script files
     asset_work_area_nuke:
-        definition: '@asset_step/work/nuke'
+        definition: '@asset_work_area/nuke'
     nuke_asset_work:
-        definition: '@asset_step/work/nuke/{name}.v{version}.nk'
+        definition: '@asset_work_area/nuke/{name}_v{version}.nk'
     nuke_asset_snapshot:
-        definition: '@asset_step/work/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
+        definition: '@asset_work_area/nuke/snapshots/{name}_v{version}.{timestamp}.nk'
 
     # The location of published nuke script files
     asset_publish_area_nuke:
-        definition: '@asset_step/pub'
+        definition: '@asset_pub_area/nuke'
     nuke_asset_publish:
-        definition: '@asset_step/pub/nuke/{name}.v{version}.nk'
+        definition: '@asset_pub_area/nuke/{name}_v{version}.nk'
 
     # Write node locations
     # main output
     nuke_asset_main_filename:
         definition: '{Asset}_{Step}_out[-{nuke.output}]_{eye}_v{version}/{Asset}_{Step}_out[-{nuke.output}]_{eye}_v{version}.{SEQ}.exr'
     nuke_asset_main_work:
-        definition: '@asset_step/work/images/@nuke_asset_main_filename'
+        definition: '@asset_work_area/images/@nuke_asset_main_filename'
     nuke_asset_main_publish:
         definition: '@asset_root/elem/@nuke_asset_main_filename'
 
     # review output
     nuke_asset_render_movie:
-        definition: '@asset_step/movs/{Asset}_{Step}_review[-{nuke.output}]_{eye}_v{version}.mov'
+        definition: '@asset_root/movs/{Asset}_{Step}_review[-{nuke.output}]_{eye}_v{version}.mov'
 
 
 #
